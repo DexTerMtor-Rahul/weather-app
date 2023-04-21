@@ -73,9 +73,11 @@ function getPublicIp(){
      .then((data) => {
           console.log(data);
           currentCity = data.city;
-          getWeatherData("Warangal", currentUnit, hourlyorWeek);
+          console.log(currentCity);
+          getWeatherData(data.city, currentUnit, hourlyorWeek);
      });
 }
+
 getPublicIp();
 
 
@@ -202,9 +204,9 @@ function convertTimeTo12HourFormate(time){
 }
 //function for icons according to weather
 function getIcon(condition){
-     if(condition === "Partly-cloudy-day"){
+     if(condition === "partly-cloudy-day"){
           return "./icons/animated/cloudy-day-3.svg"
-     } else if (condition === "Partly-cloudy-night") {
+     } else if (condition === "partly-cloudy-night") {
           return "./icons/animated/cloudy-night-3.svg"
      } else if (condition === "rain") {
           return "./icons/animated/rainy-6.svg"
@@ -212,8 +214,24 @@ function getIcon(condition){
           return "./icons/animated/clear-day.svg"
      } else if (condition === "clear-night") {
           return "./icons/animated/clear-night.svg"
+     } else if (condition === "thunder-rain") {
+          return "./icons/animated/thunder.svg"
+     } else if (condition === "snow") {
+          return "./icons/animated/snowy-6.svg"
+     } else if (condition === "snow-showers-day") {
+          return "./icons/animated/snowy-1.svg"
+     } else if (condition === "showers-night") {
+          return "./icons/animated/partly-cloudy-night-rain.svg"
+     } else if (condition === "showers-day") {
+          return "./icons/animated/rainy-1.svg"
+     } else if (condition === "showers-night") {
+          return "./icons/animated/rainy-7.svg"
+     } else if (condition === "thunder-showers-night") {
+          return "./icons/animated/thunderstorms-night-rain.svg"
+     } else if (condition === "wind") {
+          return "./icons/animated/wind.svg"
      } else {
-          return "./icons/animated/clear-day.svg"
+          return "./icons/animated/cloudy.svg"
      }
 }
 
