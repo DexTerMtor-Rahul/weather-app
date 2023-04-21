@@ -73,7 +73,7 @@ function getPublicIp(){
      .then((data) => {
           console.log(data);
           currentCity = data.city;
-          getWeatherData(data.city, currentUnit, hourlyorWeek);
+          getWeatherData("Warangal", currentUnit, hourlyorWeek);
      });
 }
 getPublicIp();
